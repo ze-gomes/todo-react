@@ -1,13 +1,11 @@
-import React from 'react'
+import React from 'react';
 
-function Task({task}) {
-    return (
+function Task({ task }) {
+	return (
 		<div>
-			<h2>
-				Task ID {task}
-			</h2>
+			<h2>Task ID {task}</h2>
 		</div>
-    )
+	);
 }
 
-export default Task
+export default Task;

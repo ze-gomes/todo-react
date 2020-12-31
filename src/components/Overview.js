@@ -4,10 +4,14 @@ import Task from './Task';
 class Overview extends Component {
 	constructor(props) {
 		super(props);
-
 		this.state = {
-			tasks: ['task1', "task2"],
+			tasks: ['task1', 'task2'],
 		};
+		this.updateState = this.updateState.bind(this);
+	}
+	updateState(taskToAdd) {
+		this.setState({ tasks: this.state.tasks.concat(taskToAdd) });
+		console.log(this.state.tasks);
 	}
 
 	render() {
