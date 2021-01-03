@@ -1,9 +1,4 @@
 import React, { Component } from 'react';
-import Overview from './Overview';
-
-function updateState() {
-	this.setState({ tasks: this.state.tasks.concat(this.state.task) });
-}
 
 class SubmitTask extends Component {
 	constructor(props) {
@@ -14,13 +9,11 @@ class SubmitTask extends Component {
 	}
 
 	handleSubmit = (event) => {
-		this.updateChild(this.state.task);
 		event.preventDefault();
-		this.setState({});
-	};
-
-	updateChild = (task) => {
-		updateState(task);
+		if (this.state.task != '') {
+			this.props.handleData(this.state.task);
+			this.setState({ task: '' });
+		}
 	};
 
 	handleChange = (event) => {
@@ -34,12 +27,17 @@ class SubmitTask extends Component {
 			<form onSubmit={this.handleSubmit}>
 				<div>
 					<input
+						className="block m-4 bg-gray-200 focus:bg-white"
 						type="text"
 						value={this.state.task}
 						onChange={this.handleChange}
 					></input>
-					<button type="submit">Add Task</button>
-					<Overview task={this.state.task}></Overview>
+					<button
+						className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-400 hover:bg-blue-600 focus:outline-none"
+						type="submit"
+					>
+						Add Task
+					</button>
 				</div>
 			</form>
 		);
