@@ -1,44 +1,43 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class Task extends Component {
-
 	constructor(props) {
-		super(props)
+		super(props);
+		this.deleteTask = this.deleteTask.bind(this);
 		this.state = {
 			id: props.id,
 			task: props.task,
-	   };
+		};
 	}
-	
-	deleteTask = () => {
-		this.props.handleDelete(this.state.id);
-	};
 
+	deleteTask() {
+		this.props.handleDelete(this.state.id);
+	}
 
 	render() {
 		const { task, id } = this.state;
 		return (
 			<div>
-				<h2 className=" cursor-pointer relative bg-gray-100 w-72 rounded m-4 p-2 hover:bg-blue-200 hover:border-transparent hover:shadow-lg">
-					ID: {id} {task}
-					<button onClick={this.deleteTask}></button>
-					<svg
-						className="justify-center transition duration-300 transform hover:scale-125 hover:text-red-600 hover: inline absolute right-3 w-5"
-						xmlns="http://www.w3.org/2000/svg"
-						viewBox="0 0 20 20"
-						fill="currentColor"
-					>
-						<path
-							fillRule="evenodd"
-							d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-							clipRule="evenodd"
-						/>
-					</svg>
+				<h2 className="transition duration-150 transform hover:scale-110  relative bg-gray-100 w-72 rounded m-1 p-1 hover:bg-blue-100 hover:border-transparent hover:shadow-lg">
+					{task}
+					<button onClick={() => this.deleteTask()}>
+						<svg
+							className="justify-center cursor-pointer text-gray-300 transition duration-300 transform hover:scale-125 hover:text-green-600 hover: inline absolute top-2 right-3 w-5"
+							xmlns="http://www.w3.org/2000/svg"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+						>
+							<path
+								fillRule="evenodd"
+								d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+								clipRule="evenodd"
+							/>
+						</svg>
+					</button>
 				</h2>
 			</div>
 		);
 	}
 }
 
-export default Task
-
+export default Task;
