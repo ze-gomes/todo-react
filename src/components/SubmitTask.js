@@ -5,14 +5,15 @@ class SubmitTask extends Component {
 		super(props);
 		this.state = {
 			task: '',
+			id: 4,
 		};
 	}
 
 	handleSubmit = (event) => {
 		event.preventDefault();
-		if (this.state.task != '') {
-			this.props.handleData(this.state.task);
-			this.setState({ task: '' });
+		if (this.state.task !== '') {
+			this.props.handleData(this.state.task, this.state.id);
+			this.setState({ task: '', id: this.state.id +1});
 		}
 	};
 
