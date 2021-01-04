@@ -10,6 +10,8 @@ class Overview extends Component {
 				{ taskName: 'Do stuff here', id: 1 },
 				{ taskName: 'Do more stuff', id: 2 },
 				{ taskName: 'Do extra stuff', id: 3 },
+				{ taskName: 'Another task here', id: 4 },
+				{ taskName: 'Work on some other stuff', id: 5},
 			],
 		};
 	}
@@ -17,7 +19,7 @@ class Overview extends Component {
 	handleTaskDelete = (id) => {
 		console.log(`deleting task with ID ${id}`);
 		this.setState((prevState) => ({
-			tasks: prevState.tasks.filter((el) => el.id != id),
+			tasks: prevState.tasks.filter((el) => el.id !== id),
 		}));
 	};
 

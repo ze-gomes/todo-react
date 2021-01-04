@@ -5,7 +5,7 @@ class SubmitTask extends Component {
 		super(props);
 		this.state = {
 			task: '',
-			id: 4,
+			id: 6, // Starting at id 5 just for test purposes to have some placeholder tasks
 		};
 	}
 
@@ -28,7 +28,7 @@ class SubmitTask extends Component {
 			<form onSubmit={this.handleSubmit}>
 				<div className="m-3">
 					<input
-						className="w-64 inline-block align-middle	justify-center rounded border border-gray-300 block m-2 hover:border-gray-700 focus:border-blue-600"
+						className="w-64 inline-block px-3 align-middle	justify-center rounded border border-gray-300 block m-2 hover:border-gray-700 focus:border-blue-600"
 						type="text"
 						value={this.state.task}
 						onChange={this.handleChange}

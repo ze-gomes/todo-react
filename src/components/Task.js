@@ -15,7 +15,7 @@ class Task extends Component {
 	}
 
 	render() {
-		const { task, id } = this.state;
+		const {task} = this.state;
 		return (
 			<div>
 				<h2 className="transition duration-150 transform hover:scale-110  relative bg-gray-100 w-72 rounded m-1 p-1 hover:bg-blue-100 hover:border-transparent hover:shadow-lg">
